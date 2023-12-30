@@ -1,18 +1,24 @@
 
+
+
+
 # Deep Transition Repository #
- :tiger2:  This repository provides an implementation of the gap-crossing scenario in the following paper:
+ :tiger2: This repository provides an implementation of the gap-crossing scenario for the CPG-RL framework in the following paper:
 - Viability Leads to the Emergence of Gait Transitions in Learning Agile Quadrupedal Locomotion on Challenging Terrains
-Milad Shafiee, Guillaume Bellegarda, Auke Ijspeert
+  Milad Shafiee, Guillaume Bellegarda, Auke Ijspeert
 
 
+##  :hammer: System requirements and Installation (GPU > 8GB and CUDA needed) ##
+ We need GPU and Cuda installed for running the Isaac Gym simulator. To train in the default configuration, we recommend a GPU with at least 8GB memory.
+  The code tested with GPU RTX-3070 (cuda-11.4) and  GPU RTX-4090 (cuda-11.7). Installation of Nvidia drivers and Cuda may take couple of hours depending on the hardware.
+  After having cuda installed and GPU ready, installation ideally will take less than 15 minutes:
 
-## :hammer:  Installation (GPU and CUDA needed) ##
-:floppy_disk:   Create a new python virtual env with python 3.6, 3.7 or 3.8 (3.8 recommended)
+:floppy_disk: Create a new python virtual env with python 3.6, 3.7 or 3.8 (3.8 recommended)
    
    - `virtualenv -p python3 DeepTransitionENV`
-   - `source {PATH_TO_VENV}/DeepTransitionENV/bin/activate`
+   - `source DeepTransitionENV/bin/activate`
      
-:page_facing_up: Run git clone on this repository and install dependencies:
+:page_facing_up:  Clone this repository and install dependencies:
 
 - `pip install -r requirements.txt`
 
@@ -24,8 +30,9 @@ Milad Shafiee, Guillaume Bellegarda, Auke Ijspeert
    - `pip install torch==1.13.0+cu117 torchvision==0.14.0+cu117 torchaudio==0.13.0 --extra-index-url https://download.pytorch.org/whl/cu117`
    
 :cartwheeling:  Install Isaac Gym
-   - Download and install Isaac Gym Preview 3   [Download](https://drive.switch.ch/index.php/s/czLtPhwuwunFCW5)
+   - Download and install Isaac Gym Preview 3   [Download](https://developer.nvidia.com/isaac-gym)
    - `cd isaacgym/python && pip install -e .`
+   - Check installation by running an example: `cd examples && python 1080_balls_of_solitude.py`
    
 :chart_with_upwards_trend:  Install rsl_rl (PPO)
    -  `cd rsl_rl  && pip install -e .` 
@@ -33,15 +40,19 @@ Milad Shafiee, Guillaume Bellegarda, Auke Ijspeert
 :mechanical_leg:  Install legged_gym
    -  `cd legged_gym && pip install -e .`
 
-## :school:  CODE STRUCTURE  & :clapper:  Usage  ##
-The training environment is defined by an env file (`quadruped.py`) and a config file (`quadruped_config.py`) that these classes use inheritance.  Central Pattern Generator (CPG) is defined by `CPG.py`.
+## :school: CODE STRUCTURE  ##
+The training environment is defined by an env file (`quadruped.py`) and a config file (`quadruped_config.py`) that these classes use inheritance. quadruped_config.py includes body names, default_joint_positions and PD gains, reward weights,etc. You need to modify the reward weights in quadruped_config.py and train the policy to reproduce the result of the paper.
+The config file contains two classes: one containing all the environment parameters (LeggedRobotCfg) and one for the training parameters (LeggedRobotCfgPPo).
+ Central Pattern Generator (CPG) is defined by `CPG.py`.
+ 
+## :weight_lifting:  Instructions for training  ##
 
-:weight_lifting:  **Training**:  
-- Isaac Gym requires an NVIDIA GPU. To train in the default configuration, we recommend a GPU with at least 8GB memory. The code can run on a smaller GPU if you decrease the number of parallel environments (`Cfg.env.num_envs`) or reducing the precision of  terrain meshes. Training will be slower with fewer environments. An example for training:
+- Isaac Gym requires an NVIDIA GPU. To train in the default configuration, we recommend a GPU with at least 8GB memory. The code can run on a smaller GPU if you decrease the number of parallel environments (`Cfg.env.num_envs`) or reducing the precision of  terrain meshes. Training will be slower with fewer environments.
+ An example for training (training will take less than two hours with the suggest GPUs):
  
   `python legged_gym/scripts/train.py --task=quadruped  --max_iterations=3000 --num_envs=4096`
   
- - To run on CPU add following arguments: `--sim_device=cpu`, `--rl_device=cpu` (sim on CPU and rl on GPU is possible).
+ - To run on CPU add following arguments: `--sim_device=cpu`, `--rl_device=cpu` (sim on CPU and rl on GPU is possible). Running on CPU is not encouraged and may lead to different results.
     
  -  To run without no rendering add `--headless`.
     
@@ -56,16 +67,19 @@ The training environment is defined by an env file (`quadruped.py`) and a config
    - `--num_envs` NUM_ENVS:  Number of environments to create.
      
    - `--max_iterations` MAX_ITERATIONS:  Maximum number of training iterations.
+   
+## :runner: Play a pre-trained demo  ##
      
-   :runner: Play a pre-trained policy:  
+ Play a pre-trained policy (It will take less than one minute):
  
    - `python legged_gym/scripts/play.py --task=quadruped`
 
    - By default, the loaded policy is the last model of the last run of the experiment folder.
 
 
+## Acknowledgement  ##
 ```
-This environment builds on the [legged gym environment](https://leggedrobotics.github.io/legged_gym/) by Nikita
+This environment builds on the amazing repository [legged gym environment](https://leggedrobotics.github.io/legged_gym/) by Nikita
 Rudin, Robotic Systems Lab, ETH Zurich (Paper: https://arxiv.org/abs/2109.11978) and the Isaac Gym simulator from 
 NVIDIA (Paper: https://arxiv.org/abs/2108.10470). Training code builds on the [rsl_rl](https://github.com/leggedrobotics/rsl_rl) 
 repository, also by Nikita Rudin, Robotic Systems Lab, ETH Zurich. 
