@@ -3,23 +3,23 @@
 
 
 
+
 # Deep Transition Repository #
  :tiger2: This repository provides an implementation (Simulation code) of the CPG-RL framework in the following paper:
 <td style="padding:20px;width:75%;vertical-align:middle">
-      <a href="https://miladshafiee.github.io/DeepTransition/">
       <b> Viability Leads to the Emergence of Gait Transitions in Learning Agile Quadrupedal Locomotion on Challenging Terrains </b>
-      </a>
       <br>
       <a href="https://miladshafiee.github.io/" target="_blank">Milad Shafiee</a> , <a href="https://people.epfl.ch/guillaume.bellegarda/" target="_blank">Guillaume Bellegarda</a> and
       <a href="https://www.epfl.ch/labs/biorob/people/ijspeert/" target="_blank">Auke Ijspeert</a>
       <br>
       <em><strong> Nature Communications</strong>, vol. 15, no. 1, p. 3073</em>, 2024,.
       <br>
-      <a href="https://doi.org/10.1038/s41467-024-47443-w">paper</a> /
-      <a href="https://miladshafiee.github.io/DeepTransition/" target="_blank">project page</a>
+      <a href="https://doi.org/10.1038/s41467-024-47443-w">Paper</a> /
+      <a href="https://miladshafiee.github.io/DeepTransition/" target="_blank">Project page</a>
     <br>
 </td>
 
+&nbsp;
 
 ```
 @article{shafiee2024Viability,
