@@ -19,7 +19,9 @@
   publisher={Nature Publishing Group UK London}
 }
 ```
-![](https://github.com/MiladShafiee/DeepTransition/exp.gif)
+<p align="center">
+  <img src="images/exp.gif" width="80%"/>
+</p>
 
 ##  :hammer: System requirements and Installation (GPU > 8GB and CUDA needed) ##
  We need GPU and Cuda installed for running the Isaac Gym simulator. To train in the default configuration, we recommend a GPU with at least 8GB memory.
