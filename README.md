@@ -5,7 +5,21 @@
 
 # Deep Transition Repository #
  :tiger2: This repository provides an implementation (Simulation code) of the CPG-RL framework in the following paper in **Nature Communications**:
-- M. Shafiee, G. Bellegarda, and A. Ijspeert, “Viability leads to the emergence of gait transitions in learning agile quadrupedal locomotion on challenging terrains,”  Nature Communications, vol. 15, no. 1, p. 3073, 2024. https://doi.org/10.1038/s41467-024-47443-w
+<td style="padding:20px;width:75%;vertical-align:middle">
+      <a href="https://miladshafiee.github.io/DeepTransition/">
+      <b> Viability Leads to the Emergence of Gait Transitions in Learning Agile Quadrupedal Locomotion on Challenging Terrains </b>
+      </a>
+      <br>
+      <a href="https://miladshafiee.github.io/" target="_blank">Milad Shafiee</a> , <a href="https://people.epfl.ch/guillaume.bellegarda/" target="_blank">Guillaume Bellegarda</a> and
+      <a href="https://www.epfl.ch/labs/biorob/people/ijspeert/" target="_blank">Auke Ijspeert</a>
+      <br>
+      <em>Nature Communications, vol. 15, no. 1, p. 3073</em>, 2024,.
+      <br>
+      <a href="https://doi.org/10.1038/s41467-024-47443-w">paper</a> /
+      <a href="https://miladshafiee.github.io/DeepTransition/" target="_blank">project page</a>
+    <br>
+</td>
+
 
 ```
 @article{shafiee2024Viability,
@@ -20,7 +34,7 @@
 }
 ```
 <p align="center">
-  <img src="images/exp.gif" width="80%"/>
+  <img src="images/exp.gif" width="100%"/>
 </p>
 
 ##  :hammer: System requirements and Installation (GPU > 8GB and CUDA needed) ##
