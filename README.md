@@ -2,11 +2,24 @@
 
 
 
-# Deep Transition Repository #
- :tiger2: This repository provides an implementation of the gap-crossing scenario for the CPG-RL framework in the following paper:
-- Viability Leads to the Emergence of Gait Transitions in Learning Agile Quadrupedal Locomotion on Challenging Terrains
-  Milad Shafiee, Guillaume Bellegarda, Auke Ijspeert
 
+# Deep Transition Repository #
+ :tiger2: This repository provides an implementation (Simulation code) of the CPG-RL framework in the following paper in **Nature Communications**:
+- M. Shafiee, G. Bellegarda, and A. Ijspeert, “Viability leads to the emergence of gait transitions in learning agile quadrupedal locomotion on challenging terrains,”  Nature Communications, vol. 15, no. 1, p. 3073, 2024. https://doi.org/10.1038/s41467-024-47443-w
+
+```
+@article{shafiee2024Viability,
+  title={Viability leads to the emergence of gait transitions in learning agile quadrupedal locomotion on challenging terrains},
+  author={Shafiee, Milad and Bellegarda, Guillaume and Ijspeert, Auke },
+  journal={Nature Communications},
+  volume={15},
+  number={1},
+  pages={3073},
+  year={2024},
+  publisher={Nature Publishing Group UK London}
+}
+```
+![](https://github.com/MiladShafiee/DeepTransition/exp.gif)
 
 ##  :hammer: System requirements and Installation (GPU > 8GB and CUDA needed) ##
  We need GPU and Cuda installed for running the Isaac Gym simulator. To train in the default configuration, we recommend a GPU with at least 8GB memory.
